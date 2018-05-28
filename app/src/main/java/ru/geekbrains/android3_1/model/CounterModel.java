@@ -1,5 +1,7 @@
 package ru.geekbrains.android3_1.model;
 
+import android.database.Observable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +21,11 @@ public class CounterModel
         int value = counters.get(index) + 1;
         counters.set(index, value);
         return value;
+    }
+
+
+
+    public  io.reactivex.Observable<Integer> getCalculateObservable(int index) {
+        return io.reactivex.Observable.fromArray(calculate(index));
     }
 }
